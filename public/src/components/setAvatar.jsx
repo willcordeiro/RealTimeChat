@@ -118,7 +118,7 @@ const Container = styled.div`
   align-items: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("https://theme.zdassets.com/theme_assets/678183/b7e9dce75f9edb23504e13b4699e208f204e5015.png");
+  background-image: url("https://cdn.wallpapersafari.com/34/55/8ciD7v.png");
   .loader {
     max-inline-size: 100%;
   }
@@ -168,6 +168,8 @@ const Container = styled.div`
     .selected {
       border: 0.4rem solid #5865f2;
       opacity:0.8;
+      box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+      rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
     }
   }
   .submit-btn {
