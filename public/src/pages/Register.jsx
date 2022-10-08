@@ -89,29 +89,25 @@ export default function Register() {
       <FormContainer>
         <form action="" onSubmit={(event) => handleSubmit(event)}>
           <div className="brand">
-            <h1>Real Time Chat</h1>
+            <h1>Real Time Chat!</h1>
           </div>
+          <span className="input-span">Username</span>
           <input
             type="text"
-            placeholder="Username"
             name="username"
             onChange={(e) => handleChange(e)}
           />
-          <input
-            type="email"
-            placeholder="Email"
-            name="email"
-            onChange={(e) => handleChange(e)}
-          />
+          <span className="input-span">Email</span>
+          <input type="email" name="email" onChange={(e) => handleChange(e)} />
+          <span className="input-span">Password</span>
           <input
             type="password"
-            placeholder="Password"
             name="password"
             onChange={(e) => handleChange(e)}
           />
+          <span className="input-span">Confirm Password</span>
           <input
             type="password"
-            placeholder="Confirm Password"
             name="confirmPassword"
             onChange={(e) => handleChange(e)}
           />
@@ -143,6 +139,7 @@ const FormContainer = styled.div`
     gap: 1rem;
     margin-bottom: 10px;
     justify-content: center;
+    font-family: system-ui;
     img {
       height: 5rem;
     }
@@ -150,10 +147,14 @@ const FormContainer = styled.div`
       color: white;
     }
   }
+
+  .input-span {
+    text-transform: uppercase;
+  }
   form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 10px;
     background-color: #36393f;
     border-radius: 2px;
     padding: 3rem 2.5rem;
@@ -165,35 +166,43 @@ const FormContainer = styled.div`
     padding: 1rem;
     border: none;
     border-radius: 3px;
+    height: 40px;
     width: 400px;
     font-size: 1rem;
     &:focus {
       outline: none;
       color: white;
       background-color: #202225;
+      font-family: system-ui;
     }
   }
   button {
     background-color: #5865f2;
     color: white;
-    padding: 1rem 2rem;
+    margin: 20px 0;
+    padding: 0.7rem 2rem;
     border: none;
     font-weight: bold;
     cursor: pointer;
     border-radius: 3px;
     font-size: 1rem;
-
+    font-family: system-ui;
     &:hover {
       opacity: 0.5;
     }
   }
   span {
-    color: white;
-
+    color: #909295;
+    font-size: 12px;
+    font-family: system-ui;
+    font-weight: bold;
     a {
       color: #03a8e9;
       text-decoration: none;
       font-weight: bold;
+      font-family: system-ui;
+      font-size: 14px;
+      line-height: 16px;
     }
   }
 `;
