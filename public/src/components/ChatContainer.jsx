@@ -131,7 +131,7 @@ const Container = styled.div`
       }
       .username {
         h3 {
-          color: white;
+          color: #ffffde;
         }
       }
     }

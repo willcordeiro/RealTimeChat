@@ -61,7 +61,7 @@ const Container = styled.div`
   .button-container {
     display: flex;
     align-items: center;
-    color: white;
+    color: #ffffde;
     gap: 1rem;
     .emoji {
       position: relative;
@@ -109,7 +109,7 @@ const Container = styled.div`
       width: 90%;
       height: 60%;
       background-color: transparent;
-      color: white;
+      color: #ffffde;
       border: none;
       padding-left: 1rem;
       font-size: 1.2rem;
@@ -136,7 +136,7 @@ const Container = styled.div`
       }
       svg {
         font-size: 2rem;
-        color: white;
+        color: #ffffde;
       }
     }
   }

@@ -22,11 +22,11 @@ export default function SetAvatar() {
     theme: "dark",
   };
 
-  /* useEffect(async () => {
+  useEffect(async () => {
     if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY))
       navigate("/login");
   }, []);
-*/
+
   const setProfilePicture = async () => {
     if (selectedAvatar === undefined) {
       toast.error("Please select an avatar", toastOptions);
@@ -124,7 +124,7 @@ const Container = styled.div`
   }
   .title-container {
     h1 {
-      color: white;
+      color: #ffffde;
       font-family: system-ui;
     }
 
@@ -174,7 +174,7 @@ const Container = styled.div`
   }
   .submit-btn {
     background-color: #5865f2;
-    color: white;
+    color:#ffffde;
     padding: 0.8rem 2rem;
     border: none;
     font-weight: bold;

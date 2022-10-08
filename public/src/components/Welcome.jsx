@@ -25,13 +25,13 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #ffffde;
   font-family: system-ui;
   flex-direction: column;
   img {
     height: 20rem;
   }
   span {
-    color: #03a8e9;
+    color: #292b2f;
   }
 `;

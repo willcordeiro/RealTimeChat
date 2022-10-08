@@ -144,7 +144,7 @@ const FormContainer = styled.div`
       height: 5rem;
     }
     h1 {
-      color: white;
+      color: #ffffde;
     }
   }
 
@@ -171,14 +171,14 @@ const FormContainer = styled.div`
     font-size: 1rem;
     &:focus {
       outline: none;
-      color: white;
+      color: #ffffde;
       background-color: #202225;
       font-family: system-ui;
     }
   }
   button {
     background-color: #5865f2;
-    color: white;
+    color: #ffffde;
     margin: 20px 0;
     padding: 0.7rem 2rem;
     border: none;
