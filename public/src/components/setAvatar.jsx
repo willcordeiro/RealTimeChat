@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { setAvatarRoute } from "../utils/APIRoutes";
 
 export default function SetAvatar() {
-  const api = `https://api.multiavatar.com/4645646`;
+  const api = `https://avatars.dicebear.com/api/big-smile/:`;
   const navigate = useNavigate();
   const [avatars, setAvatars] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -22,11 +22,11 @@ export default function SetAvatar() {
     theme: "dark",
   };
 
-  useEffect(async () => {
+  /* useEffect(async () => {
     if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY))
       navigate("/login");
   }, []);
-
+*/
   const setProfilePicture = async () => {
     if (selectedAvatar === undefined) {
       toast.error("Please select an avatar", toastOptions);
@@ -57,7 +57,7 @@ export default function SetAvatar() {
     const data = [];
     for (let i = 0; i < 4; i++) {
       const image = await axios.get(
-        `${api}/${Math.round(Math.random() * 1000)}`
+        `${api}${Math.round(Math.random() * 1000) + ".svg"}`
       );
       const buffer = new Buffer(image.data);
       data.push(buffer.toString("base64"));
@@ -69,34 +69,38 @@ export default function SetAvatar() {
     <>
       {isLoading ? (
         <Container>
-          <img src={loader} alt="loader" className="loader" />
+          <div className="loadingContainer">
+            <img src={loader} alt="loader" className="loader" />
+          </div>
         </Container>
       ) : (
         <Container>
-          <div className="title-container">
-            <h1>Pick an Avatar as your profile picture</h1>
+          <div className="avatarContainer">
+            <div className="title-container">
+              <h1>Pick an Avatar as your profile picture</h1>
+            </div>
+            <div className="avatars">
+              {avatars.map((avatar, index) => {
+                return (
+                  <div
+                    className={`avatar ${
+                      selectedAvatar === index ? "selected" : ""
+                    }`}
+                  >
+                    <img
+                      src={`data:image/svg+xml;base64,${avatar}`}
+                      alt="avatar"
+                      key={avatar}
+                      onClick={() => setSelectedAvatar(index)}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            <button onClick={setProfilePicture} className="submit-btn">
+              Set as Profile Picture
+            </button>
           </div>
-          <div className="avatars">
-            {avatars.map((avatar, index) => {
-              return (
-                <div
-                  className={`avatar ${
-                    selectedAvatar === index ? "selected" : ""
-                  }`}
-                >
-                  <img
-                    src={`data:image/svg+xml;base64,${avatar}`}
-                    alt="avatar"
-                    key={avatar}
-                    onClick={() => setSelectedAvatar(index)}
-                  />
-                </div>
-              );
-            })}
-          </div>
-          <button onClick={setProfilePicture} className="submit-btn">
-            Set as Profile Picture
-          </button>
           <ToastContainer />
         </Container>
       )}
@@ -105,21 +109,45 @@ export default function SetAvatar() {
 }
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 3rem;
-  background-color: #36393f;
   height: 100vh;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://theme.zdassets.com/theme_assets/678183/b7e9dce75f9edb23504e13b4699e208f204e5015.png");
   .loader {
     max-inline-size: 100%;
   }
   .title-container {
     h1 {
       color: white;
+      font-family: system-ui;
     }
+
+  }.loadingContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background-color: #36393f;
+    border-radius: 2px;
+    padding: 4rem 5rem;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+      rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  }
+  }
+  .avatarContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background-color: #36393f;
+    border-radius: 2px;
+    padding: 4rem 5rem;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+      rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
   }
   .avatars {
     display: flex;
@@ -131,7 +159,7 @@ const Container = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: 0.5s ease-in-out;
+      cursor: pointer;
       img {
         height: 6rem;
         transition: 0.5s ease-in-out;
@@ -139,20 +167,22 @@ const Container = styled.div`
     }
     .selected {
       border: 0.4rem solid #5865f2;
+      opacity:0.8;
     }
   }
   .submit-btn {
     background-color: #5865f2;
     color: white;
-    padding: 1rem 2rem;
+    padding: 0.8rem 2rem;
     border: none;
     font-weight: bold;
     cursor: pointer;
     border-radius: 0.4rem;
     font-size: 1rem;
+    font-family: system-ui;
     text-transform: uppercase;
     &:hover {
-      opacity: 0.5s;
+      background-color: #717cf4;
     }
   }
 `;
