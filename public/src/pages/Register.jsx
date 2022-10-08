@@ -9,7 +9,7 @@ import { registerRoute } from "../utils/APIRoutes";
 export default function Register() {
   const navigate = useNavigate();
   const toastOptions = {
-    position: "bottom-right",
+    position: "top-right",
     autoClose: 8000,
     pauseOnHover: true,
     draggable: true,
@@ -149,7 +149,7 @@ const FormContainer = styled.div`
   }
 
   .input-span {
-    text-transform: uppercase;
+    color: #afb1b3;
   }
   form {
     display: flex;
@@ -193,7 +193,8 @@ const FormContainer = styled.div`
   }
   span {
     color: #909295;
-    font-size: 12px;
+
+    font-size: 14px;
     font-family: system-ui;
     font-weight: bold;
     a {
