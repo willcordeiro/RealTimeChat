@@ -14,7 +14,7 @@ export default function Chat() {
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(undefined);
   const [currentUser, setCurrentUser] = useState(undefined);
-  useEffect(async () => {
+  /* useEffect(async () => {
     if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
       navigate("/login");
     } else {
@@ -25,6 +25,7 @@ export default function Chat() {
       );
     }
   }, []);
+  */
   useEffect(() => {
     if (currentUser) {
       socket.current = io(host);
@@ -69,11 +70,16 @@ const Container = styled.div`
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  background-color: #131324;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://cutewallpaper.org/21/discord-wallpapers/Resources-Advertise-Your-Server.png");
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
   .container {
-    height: 85vh;
-    width: 85vw;
-    background-color: #00000076;
+    height: 97%;
+    width: 97%;
+    background-color: #36393f;
+    border-radius: 2px;
     display: grid;
     grid-template-columns: 25% 75%;
     @media screen and (min-width: 720px) and (max-width: 1080px) {
