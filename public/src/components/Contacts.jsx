@@ -66,15 +66,17 @@ export default function Contacts({ contacts, changeChat }) {
 }
 const Container = styled.div`
   display: grid;
-  grid-template-rows: 10% 82% 8%;
+  grid-template-rows: 7.7% 84% 8%;
   overflow: hidden;
   background-color: #2f3136;
   .brand {
     display: flex;
+    border-bottom: 2px solid #2c2f34;
     align-items: center;
     justify-content: center;
     font-family: system-ui;
     background-color: #292b2f;
+
     img {
       height: 2rem;
     }

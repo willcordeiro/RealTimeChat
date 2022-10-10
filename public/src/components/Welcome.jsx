@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import image from "../assets/chatRealTimeIcon.png";
+import Logout from "./Logout";
 export default function Welcome() {
   const [userName, setUserName] = useState("");
   useEffect(async () => {
@@ -12,6 +13,8 @@ export default function Welcome() {
   }, []);
   return (
     <Container>
+      <Logout />
+
       <img src={image} alt="" />
       <h1>
         Welcome, <span>{userName}!</span>

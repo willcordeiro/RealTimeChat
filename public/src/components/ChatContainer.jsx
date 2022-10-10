@@ -102,14 +102,17 @@ export default function ChatContainer({ currentChat, socket }) {
           );
         })}
       </div>
-      <ChatInput handleSendMsg={handleSendMsg} />
+      <ChatInput
+        handleSendMsg={handleSendMsg}
+        username={currentChat.username}
+      />
     </Container>
   );
 }
 
 const Container = styled.div`
   display: grid;
-  grid-template-rows: 10% 80% 10%;
+  grid-template-rows: 8% 82% 10%;
   gap: 0.1rem;
   overflow: hidden;
   @media screen and (min-width: 720px) and (max-width: 1080px) {
@@ -120,7 +123,7 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
-    background-color: #202225;
+    border-bottom: 2px solid #2c2f34;
     .user-details {
       display: flex;
       align-items: center;
@@ -162,7 +165,7 @@ const Container = styled.div`
         overflow-wrap: break-word;
         padding: 1rem;
         font-size: 1.1rem;
-        border-radius: 1rem;
+        border-radius: 17px;
         color: #d1d1d1;
         @media screen and (min-width: 720px) and (max-width: 1080px) {
           max-width: 70%;
@@ -172,13 +175,13 @@ const Container = styled.div`
     .sended {
       justify-content: flex-end;
       .content {
-        background-color: #4f04ff21;
+        background-color: #43538e;
       }
     }
     .recieved {
       justify-content: flex-start;
       .content {
-        background-color: #9900ff20;
+        background-color: #5865f2;
       }
     }
   }
