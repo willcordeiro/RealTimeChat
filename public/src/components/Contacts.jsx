@@ -91,7 +91,7 @@ const Container = styled.div`
     font-family: system-ui;
     color: #fffff3;
     gap: 0.8rem;
-    padding: 30px;
+    padding: 60px 10px;
     &::-webkit-scrollbar {
       width: 0.2rem;
       &-thumb {
@@ -128,7 +128,7 @@ const Container = styled.div`
       background-color: #36393f;
     }
     .selected {
-      background-color: #9a86f3;
+      background-color: #36393f;
     }
   }
   .current-user {

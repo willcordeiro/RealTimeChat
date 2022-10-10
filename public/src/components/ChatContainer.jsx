@@ -120,6 +120,7 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
+    background-color: #202225;
     .user-details {
       display: flex;
       align-items: center;
@@ -127,11 +128,14 @@ const Container = styled.div`
       .avatar {
         img {
           height: 3rem;
+          background-color: #36393f;
+          border-radius: 50px;
         }
       }
       .username {
         h3 {
           color: #ffffde;
+          font-family: system-ui;
         }
       }
     }
