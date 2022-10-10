@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-
+import image from "../assets/chatRealTimeIcon.png";
 export default function Welcome() {
   const [userName, setUserName] = useState("");
   useEffect(async () => {
@@ -12,7 +12,7 @@ export default function Welcome() {
   }, []);
   return (
     <Container>
-      <img src="" alt="" />
+      <img src={image} alt="" />
       <h1>
         Welcome, <span>{userName}!</span>
       </h1>
@@ -32,6 +32,6 @@ const Container = styled.div`
     height: 20rem;
   }
   span {
-    color: #292b2f;
+    color: #ec517f;
   }
 `;

@@ -24,6 +24,7 @@ export default function Contacts({ contacts, changeChat }) {
           <div className="brand">
             <h3>Real Time Chat</h3>
           </div>
+
           <div className="contacts">
             {contacts.map((contact, index) => {
               return (
@@ -65,15 +66,15 @@ export default function Contacts({ contacts, changeChat }) {
 }
 const Container = styled.div`
   display: grid;
-  grid-template-rows: 10% 83% 7%;
+  grid-template-rows: 10% 82% 8%;
   overflow: hidden;
   background-color: #2f3136;
   .brand {
     display: flex;
     align-items: center;
-    gap: 1rem;
     justify-content: center;
     font-family: system-ui;
+    background-color: #292b2f;
     img {
       height: 2rem;
     }
@@ -90,6 +91,7 @@ const Container = styled.div`
     font-family: system-ui;
     color: #fffff3;
     gap: 0.8rem;
+    padding: 30px;
     &::-webkit-scrollbar {
       width: 0.2rem;
       &-thumb {
@@ -99,8 +101,7 @@ const Container = styled.div`
       }
     }
     .contact {
-      background-color: #ffffff34;
-      min-height: 5rem;
+      min-height: 2rem;
       cursor: pointer;
       width: 90%;
       border-radius: 0.2rem;
@@ -110,10 +111,11 @@ const Container = styled.div`
       color: #fffff3;
       gap: 1rem;
       align-items: center;
-      transition: 0.5s ease-in-out;
       .avatar {
         img {
           height: 3rem;
+          background-color: #36393f;
+          border-radius: 50px;
         }
       }
       .username {
@@ -122,6 +124,9 @@ const Container = styled.div`
         }
       }
     }
+    .contact:hover {
+      background-color: #36393f;
+    }
     .selected {
       background-color: #9a86f3;
     }
@@ -129,15 +134,19 @@ const Container = styled.div`
   .current-user {
     background-color: #292b2f;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     font-family: system-ui;
     color: #fffff3;
     font-weight: bold;
-    gap: 2rem;
+    gap: 1rem;
+    padding: 20px;
+    font-size: 0.7rem;
     .avatar {
       img {
-        height: 4rem;
+        background-color: #36393f;
+        border-radius: 50px;
+        height: 3rem;
         max-inline-size: 100%;
       }
     }
@@ -150,7 +159,7 @@ const Container = styled.div`
       gap: 0.5rem;
       .username {
         h2 {
-          font-size: 1rem;
+          font-size: 0.5rem;
         }
       }
     }
