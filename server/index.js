@@ -12,11 +12,11 @@ app.use(express.json());
 
 mongoose
   .connect(process.env.MONGO_URL, {
-    useNewURLParser: true,
+    useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("DB Connection Successfull");
+    console.log("DB Connetion Successfull");
   })
   .catch((err) => {
     console.log(err.message);
@@ -25,10 +25,9 @@ mongoose
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-const server = app.listen(process.env.PORT, () => {
-  console.log(`server runing on port ${process.env.PORT}`);
-});
-
+const server = app.listen(process.env.PORT, () =>
+  console.log(`Server started on ${process.env.PORT}`)
+);
 const io = socket(server, {
   cors: {
     origin: "http://localhost:3000",
