@@ -66,7 +66,7 @@ export default function Contacts({ contacts, changeChat }) {
 }
 const Container = styled.div`
   display: grid;
-  grid-template-rows: 7.7% 84% 8%;
+  grid-template-rows: 6% 87% 7%;
   overflow: hidden;
   background-color: #2f3136;
   .brand {
@@ -93,7 +93,7 @@ const Container = styled.div`
     font-family: system-ui;
     color: #fffff3;
     gap: 0.8rem;
-    padding: 60px 10px;
+    padding: 20px 10px;
     &::-webkit-scrollbar {
       width: 0.2rem;
       &-thumb {

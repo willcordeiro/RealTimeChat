@@ -85,10 +85,7 @@ export default function ChatContainer({ currentChat, socket }) {
         <div className="user-details">
           <div className="avatar">
             <div>
-              <img
-                src={`data:image/svg+xml;base64,${currentChat.avatarImage}`}
-                alt=""
-              />
+              <span className="aroba">@</span>
             </div>
           </div>
           <div className="username">
@@ -137,7 +134,7 @@ export default function ChatContainer({ currentChat, socket }) {
 
 const Container = styled.div`
   display: grid;
-  grid-template-rows: 8% 82% 10%;
+  grid-template-rows: 6% 87% 2%;
   gap: 0.1rem;
   overflow: hidden;
   @media screen and (min-width: 720px) and (max-width: 1080px) {
@@ -153,12 +150,6 @@ const Container = styled.div`
       display: flex;
       align-items: center;
       gap: 1rem;
-      .avatar {
-        img {
-          height: 3rem;
-          background-color: #36393f;
-          border-radius: 50px;
-        }
       }
       .username {
         h3 {
@@ -167,6 +158,11 @@ const Container = styled.div`
         }
       }
     }
+  }
+  .aroba {
+    color: #8e9297;
+    font-size: 25px;
+    font-family: system-ui;
   }
   .grid-parent {
     margin: 10px;
