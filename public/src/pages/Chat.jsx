@@ -70,14 +70,9 @@ const Container = styled.div`
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url("https://i.pinimg.com/originals/fd/91/13/fd91131ea693096d6be5e8aa99d18f9e.jpg");
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
-    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
   .container {
-    height: 98%;
-    width: 98%;
+    height: 100%;
+    width: 100%;
     background-color: #36393f;
     border-radius: 2px;
     display: grid;

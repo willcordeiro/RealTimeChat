@@ -106,7 +106,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 2rem;
-    background-color: #ffffff34;
+    background-color: #40444b;
     font-family: system-ui;
     input {
       width: 90%;
@@ -129,7 +129,7 @@ const Container = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #5f6166;
+      background-color: #40444b;
       border-radius: 7px;
       border: none;
       @media screen and (min-width: 720px) and (max-width: 1080px) {

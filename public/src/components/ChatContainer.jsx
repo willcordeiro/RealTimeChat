@@ -69,15 +69,27 @@ export default function ChatContainer({ currentChat, socket }) {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  const [currentUserName, setCurrentUserName] = useState(undefined);
+  const [currentUserImage, setCurrentUserImage] = useState(undefined);
+  useEffect(async () => {
+    const data = await JSON.parse(
+      localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
+    );
+    setCurrentUserName(data.username);
+    setCurrentUserImage(data.avatarImage);
+  }, []);
+
   return (
     <Container>
       <div className="chat-header">
         <div className="user-details">
           <div className="avatar">
-            <img
-              src={`data:image/svg+xml;base64,${currentChat.avatarImage}`}
-              alt=""
-            />
+            <div>
+              <img
+                src={`data:image/svg+xml;base64,${currentChat.avatarImage}`}
+                alt=""
+              />
+            </div>
           </div>
           <div className="username">
             <h3>{currentChat.username}</h3>
@@ -88,14 +100,27 @@ export default function ChatContainer({ currentChat, socket }) {
       <div className="chat-messages">
         {messages.map((message) => {
           return (
-            <div ref={scrollRef} key={uuidv4()}>
-              <div
-                className={`message ${
-                  message.fromSelf ? "sended" : "recieved"
-                }`}
-              >
-                <div className="content ">
-                  <p>{message.message}</p>
+            <div ref={scrollRef} key={uuidv4()} className="grid-parent">
+              <div className="inline-block-child">
+                <img
+                  src={
+                    message.fromSelf
+                      ? `data:image/svg+xml;base64,${currentUserImage}`
+                      : `data:image/svg+xml;base64,${currentChat.avatarImage}`
+                  }
+                  className="subImage"
+                />
+              </div>
+              <div className="inline-block-child">
+                <h3 className="subName">
+                  {message.fromSelf ? currentUserName : currentChat.username}
+                </h3>
+                <div
+                  className={`message ${
+                    message.fromSelf ? "sended" : "recieved"
+                  }`}
+                >
+                  <div className="content ">{message.message}</div>
                 </div>
               </div>
             </div>
@@ -143,6 +168,25 @@ const Container = styled.div`
       }
     }
   }
+  .grid-parent {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 65px 1000px;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+
+  .subImage {
+    height: 3rem;
+    background-color: #2f3136;
+    border-radius: 50px;
+  }
+  .subName {
+    color: #ffffde;
+    font-family: system-ui;
+    font-size: 16px;
+  }
   .chat-messages {
     padding: 1rem 2rem;
     display: flex;
@@ -150,20 +194,20 @@ const Container = styled.div`
     gap: 1rem;
     overflow: auto;
     &::-webkit-scrollbar {
-      width: 0.2rem;
+      background-color: #2e3338;
+      width: 0.6rem;
       &-thumb {
-        background-color: #ffffff39;
-        width: 0.1rem;
+        width: 0.6rem;
         border-radius: 1rem;
+        background-color: #202225;
       }
     }
     .message {
       display: flex;
       align-items: center;
+      font-size: 16px;
       .content {
         max-width: 40%;
-        overflow-wrap: break-word;
-        padding: 1rem;
         font-size: 1.1rem;
         border-radius: 17px;
         color: #d1d1d1;
@@ -173,15 +217,15 @@ const Container = styled.div`
       }
     }
     .sended {
-      justify-content: flex-end;
+      justify-content: flex-start;
       .content {
-        background-color: #43538e;
+        font-family: system-ui;
       }
     }
     .recieved {
       justify-content: flex-start;
       .content {
-        background-color: #5865f2;
+        font-family: system-ui;
       }
     }
   }
