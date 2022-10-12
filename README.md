@@ -10,7 +10,7 @@ this is one of my favorites projects, i created it using react, node.js and sock
 
 Connect with me at [LinkedIn](https://www.linkedin.com/in/william-cordeiro-568229238/)
 
-You can access the website of this project at COMMING SOON
+You can access the website of this project at COMMING SOON...
 
 
 ### what you need to have to run this project
@@ -25,8 +25,23 @@ You can access the website of this project at COMMING SOON
 
 ```
 $ git clone https://github.com/willcordeiro/RealTimeChat.git
+```
+```
+start the react project...
+$ cd ./<react folder>
 
-$ cd ./<project page>
+
+$ npm start
+
+```
+
+```
+start the node.js project...
+$ cd ./<server folder>
+
+
+
+$ npm start
 ```
 
 **Installing dependencies**
