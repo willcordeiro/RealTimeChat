@@ -76,7 +76,7 @@ const Container = styled.div`
     background-color: #36393f;
     border-radius: 2px;
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 20% 80%;
     @media screen and (min-width: 720px) and (max-width: 1080px) {
       grid-template-columns: 35% 65%;
     }
