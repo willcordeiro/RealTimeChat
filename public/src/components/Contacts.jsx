@@ -69,6 +69,7 @@ const Container = styled.div`
   grid-template-rows: 6% 87% 7%;
   overflow: hidden;
   background-color: #2f3136;
+
   .brand {
     display: flex;
     border-bottom: 2px solid #2c2f34;
@@ -92,20 +93,20 @@ const Container = styled.div`
     overflow: auto;
     font-family: system-ui;
     color: #fffff3;
-    gap: 0.8rem;
-    padding: 20px 10px;
+    gap: 0.4rem;
+    padding: 10px 0;
     &::-webkit-scrollbar {
       width: 0.2rem;
       &-thumb {
-        background-color: #ffffff39;
-        width: 0.1rem;
+        width: 0.6rem;
         border-radius: 1rem;
+        background-color: #202225;
       }
     }
     .contact {
       min-height: 2rem;
       cursor: pointer;
-      width: 90%;
+      width: 95%;
       border-radius: 0.2rem;
       padding: 0.4rem;
       display: flex;
@@ -142,7 +143,7 @@ const Container = styled.div`
     color: #fffff3;
     font-weight: bold;
     gap: 1rem;
-    padding: 20px;
+    padding: 10px;
     font-size: 0.7rem;
     .avatar {
       img {
